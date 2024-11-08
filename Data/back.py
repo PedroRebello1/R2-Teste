@@ -87,7 +87,7 @@ df['grupo'] = df['causa_acidente'].map(mapa_causas)
 
 # Define pesos pra calcular o risco de cada via 
 # tirei diretamente do olho do meu cu, nois pode discutir um valor melhor depois
-pesos_mortalidade = {'Baixa': 2, 'Moderada': 10, 'Alta': 40}
+pesos_mortalidade = {'Baixa': 5, 'Moderada': 10, 'Alta': 30}
 pesos_causa = {'Falha Humana': 5, 'Problemas da Via': 15}
 
 # Botei essas duas colunas so pra facilitar o calculo, elas sao excluidas antes de salvar o arquivo final
@@ -119,6 +119,11 @@ print(f"Salvo como: {output_path}\n No diretório: {os.getcwd()}")
 
 
 
+# essa porra desse grafico ta horroroso
+# faz algum melhor p nois :)
+
+# no graficos.py tem outros 2, pode usar eles tb, mas ideal seria pelo menos 4
+
 
 
 # Gráfico de dispersão: fase_dia (eixo X) e condicao_metereologica (eixo Y), com o tamanho dos pontos representando a quantidade de acidentes
@@ -126,6 +131,8 @@ plt.figure(figsize=(10, 6))
 scatter_data = df.groupby(['fase_dia', 'condicao_metereologica']).size().reset_index(name='quantidade_acidentes')
 
 # Plotando os pontos com o tamanho proporcional à quantidade de acidentes
+
+# esse tamanho ficou duvidoso
 plt.scatter(
     scatter_data['fase_dia'],
     scatter_data['condicao_metereologica'],
@@ -149,7 +156,8 @@ plt.show()
 
 
 # -------------- #
-# Essa parte é pra calcular o risco
+# Essa parte é pra agrupar o risco por br
+# é a base q usa pra determinar a média na apliação
 # -------------- #
 
 
@@ -157,7 +165,7 @@ plt.show()
 # Agrupa o DataFrame por BR e soma os valores de risco para cada BR
 df_risco_agrupado = df.groupby('br', as_index=False).agg({'risco': 'sum'})
 
-# Aplica escala logaritmca
+# Aplica escala logaritmca pra essa merda ficar decente
 df_risco_agrupado['Log_Risk'] = np.log10(df_risco_agrupado['risco'] + 1)  # Adding 1 to avoid log(0)
 
 # normaliza os valores entre 0 e 10
