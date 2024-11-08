@@ -1,0 +1,8 @@
+AIzaSyDXlBod6WV_Rtarg6ZFaHmDzz6xpJAxays
+
+
+https://maps.googleapis.com/maps/api/directions/json
+  ?destination=Rio+De+Janeiro
+  &origin=Brasilia
+  &region=br
+  &key=apikey

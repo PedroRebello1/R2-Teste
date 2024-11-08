@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risco de Acidentes em Rodovias Federais</title>
+    <link rel="stylesheet" href="./static/style.css">
+</head>
+<body>
+    
+    <div class="title">
+        <h1>Risco de Acidentes em Rodovias Federais</h1>
+    </div>
+    
+    <div class="navbar">
+        <button onclick="showSection('trajeto')">Trajeto</button>
+        <button onclick="showSection('estatisticas')">Estatísticas</button>
+    </div>
+
+    <div id="trajeto" class="container active">
+        <h2>Calcular Risco de Trajeto</h2>
+        <form id="formTrajeto" method="POST">
+            <input type="text" name="origin" placeholder="Origem" required>
+            <input type="text" name="destination" placeholder="Destino" required>
+            <button type="submit">Calcular Risco</button>
+        </form>
+    
+        <!-- Loading Animation -->
+        <div class="loading-container" id="loadingAnimation">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    
+        <p id="averageRisk"></p>
+    </div>
+    
+    <div id="estatisticas" class="container">
+        <h2>Estatísticas de Acidentes</h2>
+        <img src="" id="top50" alt="50 BRs com maior risco">
+        <img src="" id="dist" alt="Distribuição do Risco Médio">
+        <p id="averageFrequency">Acidentes por ano nas BRs do trajeto:</p>        
+    </div>
+
+
+    
+    
+    
+
+<script src="./static/script.js"></script>
+</body>
+</html>

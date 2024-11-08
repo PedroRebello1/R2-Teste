@@ -1,0 +1,132 @@
+/* Definições gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Fundo escuro */
+    color: #E0E0E0; /* Texto claro */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo do título */
+.title {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #333;
+}
+
+/* Estilo da barra de navegação */
+.navbar {
+    margin: 20px 0;
+    text-align: center; /* Centraliza os botões */
+}
+
+.navbar button {
+    margin: 0 10px; /* Margem horizontal */
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #1E1E1E; /* Fundo dos botões */
+    color: #E0E0E0; /* Texto claro */
+    transition: background-color 0.3s, transform 0.3s; /* Transições suaves */
+}
+
+/* Efeito hover nos botões */
+.navbar button:hover {
+    background-color: #3A3A3A; /* Fundo mais claro ao passar o mouse */
+    transform: translateY(-2px); /* Levanta o botão */
+}
+
+/* Estilo das seções */
+.container {
+    display: none; /* Esconder todas as seções inicialmente */
+    padding: 20px;
+    border-radius: 8px; /* Bordas arredondadas */
+    background-color: #1E1E1E; /* Fundo das seções */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra para as seções */
+}
+
+.active {
+    display: block; /* Mostrar apenas a seção ativa */
+}
+
+/* Estilo do formulário */
+input[type="text"] {
+    width: 200px; /* Largura dos campos de texto */
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #333; /* Fundo dos campos de texto */
+    color: #E0E0E0; /* Texto claro */
+}
+
+/* Estilo do botão de submit */
+button[type="submit"] {
+    background-color: #007BFF; /* Azul */
+    color: #fff; /* Texto branco */
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Transições suaves */
+}
+
+/* Efeito hover no botão de submit */
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Azul mais escuro */
+    transform: translateY(-2px); /* Levanta o botão */
+}
+
+/* Estilo das imagens */
+img {
+    max-width: 100%; /* Imagem responsiva */
+    height: auto;
+    border-radius: 5px; /* Bordas arredondadas para a imagem */
+    margin-top: 10px; /* Margem superior para espaçamento */
+}
+
+
+
+/* Animação de carregamento */
+.loading-container {
+    display: none;
+    padding: 20px;
+}
+
+.loading-container.active {
+    display: block;
+}
+
+.loading-container .line {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+    border-radius: 15px;
+    background-color: #007BFF;
+}
+
+.loading-container .line:nth-child(1) {
+    animation: loadingC 0.6s 0.1s linear infinite;
+}
+
+.loading-container .line:nth-child(2) {
+    animation: loadingC 0.6s 0.2s linear infinite;
+}
+
+.loading-container .line:nth-child(3) {
+    animation: loadingC 0.6s 0.3s linear infinite;
+}
+
+@keyframes loadingC {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(0, 15px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
